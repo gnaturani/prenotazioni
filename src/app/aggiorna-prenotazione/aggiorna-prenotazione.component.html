@@ -1,0 +1,67 @@
+<div fxLayoutAlign="center center">
+  <mat-stepper orientation="vertical" [linear]="true" #stepper style="width: 100%; max-width:400px;">
+
+    <mat-step>
+      <ng-template matStepLabel>Scegli la data</ng-template>
+      <mat-card class="demo-inline-calendar-card">
+        <mat-calendar
+          [dateFilter]="weekendDateFilter"
+          [minDate]="today"
+          (selectedChange)="onSelectedDate($event)"></mat-calendar>
+      </mat-card>
+    </mat-step>
+
+    <mat-step>
+      <ng-template matStepLabel>Scegli le ore</ng-template>
+
+      <div fxLayout="column">
+        <div fxLayout="row wrap" fxLayoutAlign="center center">
+          <div *ngFor="let slot of slots" class="slot" [ngClass]="slot.attivo ? 'slot_attivo' : 'slot_disattivato'"
+            (click)="onSelectedSlot(slot)">
+            {{slot.inizio}} - {{slot.fine}}
+          </div>
+        </div>
+
+        <div fxLayoutAlign="end end">
+          <button mat-button matStepperNext>Avanti</button>
+        </div>
+      </div>
+    </mat-step>
+
+    <mat-step>
+      <ng-template matStepLabel>In quanti siete</ng-template>
+
+      <div fxLayout="column">
+        <div fxLayout="row wrap" fxLayoutAlign="center center">
+          <div *ngFor="let quante_persone of quanti" class="persone" [ngClass]="quante_persone == prenotazione.quante_persone ? 'persone_attivo' : 'persone_disattivato'"
+            (click)="onSelectedPersone(quante_persone)">
+            {{quante_persone}}
+          </div>
+        </div>
+
+        <div fxLayoutAlign="end end">
+          <button mat-button matStepperNext>Avanti</button>
+        </div>
+      </div>
+    </mat-step>
+
+    <mat-step>
+      <ng-template matStepLabel>Scegli la stanza</ng-template>
+      <div fxLayout="column">
+        <div fxLayout="row wrap" fxLayoutAlign="center center">
+          <div *ngFor="let stanza of stanze" class="stanza"
+            [ngClass]="stanza.id == prenotazione.id_stanza ? 'stanza_attiva' : 'stanza_disattivata'"
+            (click)="onSelectedStanza(stanza)">
+            {{stanza.nome}}
+          </div>
+        </div>
+
+        <div fxLayoutAlign="end end">
+          <button mat-button matStepperNext>Conferma</button>
+        </div>
+      </div>
+
+    </mat-step>
+
+  </mat-stepper>
+</div>

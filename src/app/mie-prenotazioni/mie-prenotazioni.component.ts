@@ -1,18 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from './shared/user.model';
-import { SharedService } from './shared/shared.service';
+import { User } from '../shared/user.model';
+import { SharedService } from '../shared/shared.service';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { PageService } from './shared/page.service';
+import { PageService } from '../shared/page.service';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'app-mie-prenotazioni',
+  templateUrl: './mie-prenotazioni.component.html',
+  styleUrls: ['./mie-prenotazioni.component.css']
 })
-export class AppComponent implements OnInit {
-  title = 'prenotazioni';
+export class MiePrenotazioniComponent {
 
   public saveError: string = "";
   public saveMessage: string = ""
@@ -25,7 +24,7 @@ export class AppComponent implements OnInit {
     private _router: Router,
     private _http: HttpClient,
     public snackBar: MatSnackBar,
-    public pageService: PageService
+    public _pageService: PageService
   ) { }
 
   ngOnInit() {
@@ -34,10 +33,8 @@ export class AppComponent implements OnInit {
     this.saveMessage = '';
 
     this.utente = this.shared.getUser();
-  }
 
-  GoToUserHome() {
-    window.location.href = this.shared.getHomePath() + '?token=' + this.shared.getToken();
+    this._pageService.setPage('mie_prenotazioni');
   }
 
   GoToHome() {

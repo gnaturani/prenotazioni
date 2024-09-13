@@ -1,0 +1,18 @@
+.example-icon {
+  padding: 0 14px;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.container {
+    padding: 5px;
+}
+
+.card-app{
+  width: 300px;
+  margin: 10px;
+  background-color: rgb(206, 76, 0);
+  color: white;
+}

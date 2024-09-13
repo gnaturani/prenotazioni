@@ -1,0 +1,56 @@
+.slot {
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 5px;
+}
+
+.slot_attivo {
+  background-color: greenyellow;
+  border: 1px solid green;
+}
+
+.slot_disattivato {
+  background-color: transparent;
+  border: 1px solid black;
+}
+
+
+
+.stanza {
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 5px;
+}
+
+.stanza_attiva {
+  background-color: cornflowerblue;
+  border: 1px solid blue;
+}
+
+.stanza_disattivata {
+  background-color: transparent;
+  border: 1px solid black;
+}
+
+
+
+.persone {
+  width: 100px;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 5px;
+  text-align: center;
+}
+
+.persone_attivo {
+  background-color: pink;
+  border: 1px solid palevioletred;
+}
+
+.persone_disattivato {
+  background-color: transparent;
+  border: 1px solid black;
+}
